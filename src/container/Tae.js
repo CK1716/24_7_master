@@ -49,7 +49,7 @@ const Tae = ({history}) => {
       width: '50%',
     },
     {
-      url: 'https://blog.kakaocdn.net/dn/bLM2uK/btqDEF48XEZ/MWPLd6nb0xr11Ss3kYP9k0/img.jpg',
+      url: 'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FzhH3W%2FbtqDDXEWLE2%2FgQub1iKz18CH5w3t5K2V8k%2Fimg.jpg',
       title: 'Tae4',
       siteurl: '/Tae4',
       width: '50%',

@@ -28,7 +28,7 @@ const Container = styled.div`
   background-size: cover;
 `;
 
-const URL = "https://teachablemachine.withgoogle.com/models/mDsfZwd_p/";
+const URL = "https://teachablemachine.withgoogle.com/models/2xIOLv3AE/";
 let model=null, webcam=null, ctx=null, maxPredictions=null;
 const modelURL = URL + "model.json";
 const metadataURL = URL + "metadata.json";
