@@ -32,14 +32,13 @@ let model=null, webcam=null, ctx=null, maxPredictions=null;
 
 let load=null;
 
-
 let yoga=null;
 let startTime = 0;
 let isCheck = false;
 let seconds = 0;
 
 let count = 0;
-let forcnt = true;
+let stand = "Stand";
 
 const modelURL = URL + "model.json";
 const metadataURL = URL + "metadata.json";

@@ -93,17 +93,20 @@ async function predict() {
     const prediction = await model.predict(posenetOutput);
 
     for (let i = 0; i < maxPredictions; i++) {
-        if(prediction[i].className ==="Stand" && prediction[i].probability > 0.9){
+        if(prediction[i].className ==="Stand" && prediction[i].probability > 0.7){
             if(stand === "Squat"){
                 stand = "Stand";
                 count++;
+                console.log(stand);
             }
         }
 
         
-        if(prediction[i].className ==="Squat" && prediction[i].probability > 0.85){
+        if(prediction[i].className ==="Squat" && prediction[i].probability > 0.8){
             stand = "Squat";
+            console.log(stand);
         }
+        
     }
     
     // finally draw the poses
