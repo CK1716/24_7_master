@@ -45,7 +45,7 @@ const modelURL = URL + "model.json";
 const metadataURL = URL + "metadata.json";
 
 var mount = false;
-
+ 
 async function init() {
   console.log("call init")
   model = await tmPose.load(modelURL, metadataURL);

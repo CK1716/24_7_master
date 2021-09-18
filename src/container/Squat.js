@@ -93,7 +93,7 @@ async function predict() {
     const prediction = await model.predict(posenetOutput);
 
     for (let i = 0; i < maxPredictions; i++) {
-        if(prediction[i].className ==="Stand" && prediction[i].probability > 0.7){
+        if(prediction[i].className ==="Stand" && prediction[i].probability > 0.69){
             if(stand === "Squat"){
                 stand = "Stand";
                 count++;

@@ -42,7 +42,7 @@ let stand = "Stand";
 
 const modelURL = URL + "model.json";
 const metadataURL = URL + "metadata.json";
-
+ 
 var mount = false;
 
 async function init() {
