@@ -140,6 +140,8 @@ function drawPose(pose) {
         ctx.drawImage(webcam.canvas, 0, 0);
         // draw font
         ctx.fillText('Seconds : ' + seconds, 10, 50);
+        ctx.fillText('Count : ' + count, 10, 100);
+        
         // draw the keypoints and skeleton
         if (pose) {
             const minPartConfidence = 0.5;
