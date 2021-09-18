@@ -92,16 +92,16 @@ async function predict() {
     const prediction = await model.predict(posenetOutput);
 
     for (let i = 0; i < maxPredictions; i++) {
-        if(prediction[i].className ==="Stand" && prediction[i].probability > 0.7){
+        if(prediction[i].className ==="Stand" && prediction[i].probability > 0.8){
             if((stand === "OneHandGuard_R") || (stand === "OneHandGuard_L")){
               stand = "Stand";
               count++;
             }
         }
-        if(prediction[i].className ==="OneHandGuard_R" && prediction[i].probability > 0.7){
+        if(prediction[i].className ==="OneHandGuard_R" && prediction[i].probability > 0.8){
             stand = "OneHandGuard_R";
         }
-        if(prediction[i].className ==="OneHandGuard_L" && prediction[i].probability > 0.7){
+        if(prediction[i].className ==="OneHandGuard_L" && prediction[i].probability > 0.8){
             stand = "OneHandGuard_L";
       }
     }

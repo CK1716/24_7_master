@@ -27,7 +27,7 @@ const Container = styled.div`
   background-size: cover;
 `;
 
-const URL = "https://teachablemachine.withgoogle.com/models/C5gH-o1AU/";
+const URL = "https://teachablemachine.withgoogle.com/models/m3-aJ0ChP/";
 let model=null, webcam=null, ctx=null, maxPredictions=null;
 const modelURL = URL + "model.json";
 const metadataURL = URL + "metadata.json";
@@ -40,6 +40,7 @@ let stand = "Stand";
 
 async function init() {
     console.log("call init")
+    console.log(URL);
     model = await tmPose.load(modelURL, metadataURL);
 
     // load the model and metadata
@@ -92,13 +93,15 @@ async function predict() {
     const prediction = await model.predict(posenetOutput);
 
     for (let i = 0; i < maxPredictions; i++) {
-        if(prediction[i].className ==="Stand" && prediction[i].probability > 0.7){
+        if(prediction[i].className ==="Stand" && prediction[i].probability > 0.9){
             if(stand === "Squat"){
                 stand = "Stand";
                 count++;
             }
         }
-        if(prediction[i].className ==="Squat" && prediction[i].probability > 0.7){
+
+        
+        if(prediction[i].className ==="Squat" && prediction[i].probability > 0.85){
             stand = "Squat";
         }
     }

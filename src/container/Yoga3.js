@@ -100,24 +100,35 @@ async function loop(timestamp) {
 }
 
 async function predict() {
-    // Prediction #1: run input through posenet
-    // estimatePose can take in an image, video or canvas html element
-    try {
-        const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
+  // Prediction #1: run input through posenet
+  // estimatePose can take in an image, video or canvas html element
+  try {
+    const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
     // Prediction 2: run input through teachable machine classification model
     const prediction = await model.predict(posenetOutput);
 
     for (let i = 0; i < maxPredictions; i++) {
-        if(prediction[i].className ==="Yoga_11"){
-            yoga = parseFloat(prediction[i].probability);
+      if (prediction[i].className === "Stand") {
+        if (prediction[i].probability > 0.7) {
+          if (stand === "Yoga_11") {
+            stand = "Stand";
+            count++;
+          }
         }
+      }
+      if (prediction[i].className === "Yoga_11") {
+        yoga = parseFloat(prediction[i].probability);
+        if (prediction[i].probability > 0.7) {
+          stand = "Yoga_11";
+        }
+      }
     }
 
     // finally draw the poses
     drawPose(pose);
-      } catch (e) {
-        console.error("it cant solve, and i dont wanna care about shit");
-      }
+  } catch (e) {
+    console.error("it cant solve, and i dont wanna care about shit");
+  }
 
 }
 

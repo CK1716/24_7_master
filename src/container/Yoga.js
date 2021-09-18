@@ -31,7 +31,7 @@ const Yoga = ({history}) => {
     
   const images = [
     {  
-      url: 'https://theholisticcare.com/wp-content/uploads/photo-gallery/Ardha-Chandrasana__Half_Moon_Yoga_Pose/Half_Moon-Ardha_Chandrasana_L1.jpg',
+      url: 'https://farm6.static.flickr.com/5047/5361760839_a19609f01e.jpg',
       title:'Yoga1',
       siteurl: '/Yoga1',
       width: '50%',

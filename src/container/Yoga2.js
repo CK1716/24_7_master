@@ -3,12 +3,13 @@ import Button from '@material-ui/core/Button';
 import * as tmPose from '@teachablemachine/pose';
 import styled from "styled-components";
 import yoga2 from './image/yoga2.jpg';
+
 const Half = styled.div`
     width: 50%;
     float: left;
     display: flex;
     align-items: center;
-	justify-content: center;
+   justify-content: center;
 `;
 const Container = styled.div`
   position: absolute;
@@ -36,6 +37,9 @@ let yoga=null;
 let startTime = 0;
 let isCheck = false;
 let seconds = 0;
+
+let count = 0;
+let forcnt = true;
 
 const modelURL = URL + "model.json";
 const metadataURL = URL + "metadata.json";
@@ -79,44 +83,55 @@ async function init() {
 
 
 async function loop(timestamp) {
-    if(mount){
-        webcam.update(); // update the webcam frame
-        await predict();
-        window.requestAnimationFrame(loop);
-        
-        if(yoga > 0.7){        
-            if(isCheck === false){
-                startTime = parseInt(parseInt(timestamp) / 1000);
-                isCheck = true;
-                // console.log("Start time : " + timestamp);
-            }
-            seconds = parseInt(parseInt(timestamp) / 1000) - startTime;
-        }else{
-            isCheck =false;
-            seconds = 0;
-        }
+  if (mount) {
+    webcam.update(); // update the webcam frame
+    await predict();
+    window.requestAnimationFrame(loop);
+
+    if (yoga > 0.7) {
+      if (isCheck === false) {
+        startTime = parseInt(parseInt(timestamp) / 1000);
+        isCheck = true;
+        // console.log("Start time : " + timestamp);
+      }
+      seconds = parseInt(parseInt(timestamp) / 1000) - startTime;
+    } else {
+      isCheck = false;
+      seconds = 0;
     }
+  }
 }
 
 async function predict() {
   // Prediction #1: run input through posenet
   // estimatePose can take in an image, video or canvas html element
   try {
-      const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
-  // Prediction 2: run input through teachable machine classification model
-  const prediction = await model.predict(posenetOutput);
+    const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
+    // Prediction 2: run input through teachable machine classification model
+    const prediction = await model.predict(posenetOutput);
 
-  for (let i = 0; i < maxPredictions; i++) {
-      if(prediction[i].className ==="Yoga_09"){
-          yoga = parseFloat(prediction[i].probability);
+    for (let i = 0; i < maxPredictions; i++) {
+      if (prediction[i].className === "Stand") {
+        if (prediction[i].probability > 0.7) {
+          if (stand === "Yoga_09") {
+            stand = "Stand";
+            count++;
+          }
+        }
       }
-  }
-
-  // finally draw the poses
-  drawPose(pose);
-    } catch (e) {
-      console.error("it cant solve, and i dont wanna care about shit");
+      if (prediction[i].className === "Yoga_09") {
+        yoga = parseFloat(prediction[i].probability);
+        if (prediction[i].probability > 0.7) {
+          stand = "Yoga_09";
+        }
+      }
     }
+
+    // finally draw the poses
+    drawPose(pose);
+  } catch (e) {
+    console.error("it cant solve, and i dont wanna care about shit");
+  }
 
 }
 
@@ -125,6 +140,7 @@ function drawPose(pose) {
       ctx.drawImage(webcam.canvas, 0, 0);
       // draw font
       ctx.fillText('Seconds : ' + seconds, 10, 50);
+      ctx.fillText('Count : ' + count, 10, 100);
       // draw the keypoints and skeleton
       if (pose) {
           const minPartConfidence = 0.5;
@@ -161,6 +177,7 @@ class Yoga2 extends React.Component{
           webcam.stop();
       }
       mount=false;
+      count=0;
   }
 
 
