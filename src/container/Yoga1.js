@@ -27,7 +27,7 @@ const Container = styled.div`
 `;
 
 
-const URL = "https://teachablemachine.withgoogle.com/models/hebiBqPBS/";
+const URL = "https://teachablemachine.withgoogle.com/models/p3aRD2kQA/";
 let model=null, webcam=null, ctx=null, maxPredictions=null;
 
 let load=null;
@@ -87,7 +87,7 @@ async function loop(timestamp) {
     await predict();
     window.requestAnimationFrame(loop);
 
-    if (yoga > 0.7) {
+    if (yoga > 0.8) {
       if (isCheck === false) {
         startTime = parseInt(parseInt(timestamp) / 1000);
         isCheck = true;
@@ -111,7 +111,7 @@ async function predict() {
 
     for (let i = 0; i < maxPredictions; i++) {
       if (prediction[i].className === "Stand") {
-        if (prediction[i].probability > 0.7) {
+        if (prediction[i].probability > 0.8) {
           if (stand === "Yoga_01") {
             stand = "Stand";
             count++;
@@ -120,7 +120,7 @@ async function predict() {
       }
       if (prediction[i].className === "Yoga_01") {
         yoga = parseFloat(prediction[i].probability);
-        if (prediction[i].probability > 0.7) {
+        if (prediction[i].probability > 0.8) {
           stand = "Yoga_01";
         }
       }

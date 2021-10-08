@@ -27,7 +27,7 @@ const Container = styled.div`
 `;
 
 
-const URL = "https://teachablemachine.withgoogle.com/models/sbc1WJU6N/";
+const URL = "https://teachablemachine.withgoogle.com/models/FjIBLMmL0/";
 let model=null, webcam=null, ctx=null, maxPredictions=null;
 
 let load=null;
@@ -39,7 +39,7 @@ let isCheck = false;
 let seconds = 0;
 
 let count = 0;
-let stand = "Stand";
+let stand = "Standing";
 
 const modelURL = URL + "model.json";
 const metadataURL = URL + "metadata.json";
@@ -88,7 +88,7 @@ async function loop(timestamp) {
         await predict();
         window.requestAnimationFrame(loop);
         
-        if(yoga > 0.7){        
+        if(yoga > 0.95){        
             if(isCheck === false){
                 startTime = parseInt(parseInt(timestamp) / 1000);
                 isCheck = true;
@@ -111,18 +111,18 @@ async function predict() {
     const prediction = await model.predict(posenetOutput);
 
     for (let i = 0; i < maxPredictions; i++) {
-      if (prediction[i].className === "Stand") {
-        if (prediction[i].probability > 0.7) {
-          if (stand === "Yoga_24") {
-            stand = "Stand";
-            count++;
-          }
+      if (prediction[i].className === "Camel Pose") {
+        yoga = parseFloat(prediction[i].probability);
+        if (prediction[i].probability > 0.95) {
+          stand = "Camel Pose";
         }
       }
-      if (prediction[i].className === "Yoga_24") {
-        yoga = parseFloat(prediction[i].probability);
-        if (prediction[i].probability > 0.7) {
-          stand = "Yoga_24";
+      if (prediction[i].className === "Standing") {
+        if (prediction[i].probability > 0.95) {
+          if (stand === "Camel Pose") {
+            stand = "Standing";
+            count++;
+          }
         }
       }
     }
@@ -194,7 +194,7 @@ class Yoga4 extends React.Component{
               <Half>
             <div>
               <img src={yoga4} alt="yoga4"/>
-              <h2>요가 기본동작 중 janushirasana with paschimottasana 동작입니다.</h2>
+              <h2>요가 기본동작 중 Ustrasana 동작입니다.</h2>
               <h3>다음과 같은 자세를 10초이상 유지해주시길 바랍니다.</h3>
               
             </div>

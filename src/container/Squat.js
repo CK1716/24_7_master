@@ -27,7 +27,7 @@ const Container = styled.div`
   background-size: cover;
 `;
 
-const URL = "https://teachablemachine.withgoogle.com/models/m3-aJ0ChP/";
+const URL = "https://teachablemachine.withgoogle.com/models/6FKM46y0l/";
 let model=null, webcam=null, ctx=null, maxPredictions=null;
 const modelURL = URL + "model.json";
 const metadataURL = URL + "metadata.json";
@@ -93,18 +93,20 @@ async function predict() {
     const prediction = await model.predict(posenetOutput);
 
     for (let i = 0; i < maxPredictions; i++) {
-        if(prediction[i].className ==="Stand" && prediction[i].probability > 0.69){
+        // if(prediction[i].className ==="Squat" && prediction[i].probability > 0.9){
+        //     stand = "Squat";
+        // }
+
+        if(prediction[i].className ==="Stand" && prediction[i].probability > 0.9){
             if(stand === "Squat"){
                 stand = "Stand";
                 count++;
-                console.log(stand);
             }
         }
 
         
-        if(prediction[i].className ==="Squat" && prediction[i].probability > 0.8){
+        if(prediction[i].className ==="Squat" && prediction[i].probability > 0.85){
             stand = "Squat";
-            console.log(stand);
         }
         
     }

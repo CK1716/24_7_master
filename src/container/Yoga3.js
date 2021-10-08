@@ -27,7 +27,7 @@ const Container = styled.div`
 `;
 
 
-const URL = "https://teachablemachine.withgoogle.com/models/25hB3YDhH/";
+const URL = "https://teachablemachine.withgoogle.com/models/KYxbd5TqN/"; // open source
 let model=null, webcam=null, ctx=null, maxPredictions=null;
 
 let load=null;
@@ -39,7 +39,7 @@ let isCheck = false;
 let seconds = 0;
 
 let count = 0;
-let stand = "Stand";
+let stand = "Standing";
 
 const modelURL = URL + "model.json";
 const metadataURL = URL + "metadata.json";
@@ -88,7 +88,7 @@ async function loop(timestamp) {
         await predict();
         window.requestAnimationFrame(loop);
         
-        if(yoga > 0.7){        
+        if(yoga > 0.95){        
             if(isCheck === false){
                 startTime = parseInt(parseInt(timestamp) / 1000);
                 isCheck = true;
@@ -111,18 +111,18 @@ async function predict() {
     const prediction = await model.predict(posenetOutput);
 
     for (let i = 0; i < maxPredictions; i++) {
-      if (prediction[i].className === "Stand") {
-        if (prediction[i].probability > 0.7) {
-          if (stand === "Yoga_11") {
-            stand = "Stand";
-            count++;
-          }
+      if (prediction[i].className === "Tree Pose") {
+        yoga = parseFloat(prediction[i].probability);
+        if (prediction[i].probability > 0.95) {
+          stand = "Tree Pose";
         }
       }
-      if (prediction[i].className === "Yoga_11") {
-        yoga = parseFloat(prediction[i].probability);
-        if (prediction[i].probability > 0.7) {
-          stand = "Yoga_11";
+      if (prediction[i].className === "Standing") {
+        if (prediction[i].probability > 0.95) {
+          if (stand === "Tree Pose") {
+            stand = "Standing";
+            count++;
+          }
         }
       }
     }

@@ -49,7 +49,7 @@ const Yoga = ({history}) => {
       width: '50%',
     },
     {
-      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR31WYvjNpv6WVg9ucyBDoPXXXpGjt6ui_eFw&usqp=CAU',
+      url: 'https://cdn.prod.openfit.com/uploads/2018/11/15142258/camel-Yoga52-Marie-Grujicic-Delage.jpg',
       title: 'Yoga4',
       siteurl: '/Yoga4',
       width: '50%',
