@@ -27,7 +27,7 @@ const Container = styled.div`
 `;
 
 
-const URL = "https://teachablemachine.withgoogle.com/models/KYxbd5TqN/"; // open source
+const URL = "https://teachablemachine.withgoogle.com/models/KYxbd5TqN/";
 let model=null, webcam=null, ctx=null, maxPredictions=null;
 
 let load=null;
