@@ -132,7 +132,6 @@ async function predict() {
   } catch (e) {
     console.error("it cant solve, and i dont wanna care about shit");
   }
-
 }
 
 function drawPose(pose) {
@@ -182,9 +181,7 @@ class Yoga3 extends React.Component{
       mount=false;
   }
 
-
   render() {
-
       return (
         <Container>
               {
@@ -201,13 +198,10 @@ class Yoga3 extends React.Component{
           </Half>
           <Half>  
               <div><canvas id="canvas" /></div>  
-          </Half>  
-              
-              
-              
+          </Half>       
         </Container>
       );
   }
-  };
+};
 
 export default Yoga3;

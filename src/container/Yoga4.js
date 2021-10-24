@@ -194,7 +194,7 @@ class Yoga4 extends React.Component{
               <Half>
             <div>
               <img src={yoga4} alt="yoga4"/>
-              <h2>요가 기본동작 중 Ustrasana 동작입니다.</h2>
+              <h2>요가 기본동작 중 Camel Pose 동작입니다.</h2>
               <h3>다음과 같은 자세를 10초이상 유지해주시길 바랍니다.</h3>
               
             </div>

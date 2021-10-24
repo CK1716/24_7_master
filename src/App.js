@@ -29,12 +29,8 @@ import Dance3 from './container/Dance3';
 import Dance4 from './container/Dance4';
 
 function App() {
-  
-  
   return (
-    
     <div className="App">
-        
         <Router>
         <div> 
           <Route exact path="/" component={Main} /> 
@@ -62,13 +58,9 @@ function App() {
           <Route path="/dance3" component={Dance3}/>
           <Route path="/dance4" component={Dance4}/>
         </div> 
-        </Router> 
-      
-   
-      
+        </Router>  
     </div>
   );
 }
-
 
 export default App;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const TodoRow = ({ index, todo, handleClickRemove }) => (
   <Container onClick={() => handleClickRemove(index)}>
-    {index}--{todo}
+    {index+1}. {todo}
   </Container>
 );
 

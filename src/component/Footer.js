@@ -3,8 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
-
-
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -26,7 +24,6 @@ function Footer() {
         <Grid item xs={12}>
           <Paper className={classes.paper}><Feed/></Paper>
         </Grid>
-    
       </Grid>
     </div>
   );
@@ -37,9 +34,10 @@ function Feed(){
     
     <div className="modal">
           <h2>고객센터</h2>
-          <p>kims2521@naver.com</p>
+          <h6>kims2521@naver.com</h6>
 
-          <p>문의사항은 관리자에게 고객센터 혹은 이메일 주소로 연락주시면 됩니다.성심성의껏 답변해드리겠습니다!</p>
+          <h6>문의사항은 관리자에게 고객센터 혹은 이메일 주소로 연락주시면 됩니다.</h6>
+ 
           <h2>24-7 INFO</h2>
           <h6>(주)24-7 대표 김지욱</h6>
           <h6>본점: 사업자등록번호 1234-123</h6>

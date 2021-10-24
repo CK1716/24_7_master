@@ -66,12 +66,9 @@ async function init() {
     // set font style
     ctx.font = "48px serif";
 
-
     load = document.getElementById("load");
     load.innerHTML = "";
-
     mount =true;
-    console.log("mount is " + mount);
 }
 
 
@@ -81,7 +78,6 @@ async function loop(timestamp) {
         await predict();
         window.requestAnimationFrame(loop);
     }
-    // console.log("currnent time : " + timestamp);
 }
 
 async function predict() {
@@ -93,22 +89,15 @@ async function predict() {
     const prediction = await model.predict(posenetOutput);
 
     for (let i = 0; i < maxPredictions; i++) {
-        // if(prediction[i].className ==="Squat" && prediction[i].probability > 0.9){
-        //     stand = "Squat";
-        // }
-
         if(prediction[i].className ==="Stand" && prediction[i].probability > 0.9){
             if(stand === "Squat"){
                 stand = "Stand";
                 count++;
             }
         }
-
-        
         if(prediction[i].className ==="Squat" && prediction[i].probability > 0.85){
             stand = "Squat";
         }
-        
     }
     
     // finally draw the poses
@@ -116,7 +105,6 @@ async function predict() {
       } catch (e) {
         console.error("it cant solve, and i dont wanna care about shit");
       }
-
 }
 
 function drawPose(pose) {
@@ -134,7 +122,6 @@ function drawPose(pose) {
 }
 
 class Squat extends React.Component{
-
     constructor(props){
       super(props);
       this.state = {
@@ -163,9 +150,7 @@ class Squat extends React.Component{
         count=0;
     }
 
-
     render() {
-
         return (
           <Container>
                 {
@@ -177,18 +162,14 @@ class Squat extends React.Component{
               <img src={image2} alt="image2"/>
               <h2>스쿼트 기본동작입니다.</h2>
               <h3>스쿼트 동작전 처음과 같이 자세를 준비해주시길 바랍니다.</h3>
-              
             </div>
           </Half>
           <Half>  
               <div><canvas id="canvas" /></div>  
           </Half>   
-                
-                
           </Container>
         );
     }
   };
-
 
 export default Squat;

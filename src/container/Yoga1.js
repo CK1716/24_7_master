@@ -111,7 +111,7 @@ async function predict() {
 
     for (let i = 0; i < maxPredictions; i++) {
       if (prediction[i].className === "Stand") {
-        if (prediction[i].probability > 0.8) {
+        if (prediction[i].probability > 0.95) {
           if (stand === "Yoga_01") {
             stand = "Stand";
             count++;
@@ -120,7 +120,7 @@ async function predict() {
       }
       if (prediction[i].className === "Yoga_01") {
         yoga = parseFloat(prediction[i].probability);
-        if (prediction[i].probability > 0.8) {
+        if (prediction[i].probability > 0.95) {
           stand = "Yoga_01";
         }
       }

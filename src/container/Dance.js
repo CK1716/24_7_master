@@ -93,14 +93,11 @@ const Dance = ({history}) => {
           </span>
         </ButtonBase>
       ))}
-
         </Container>
     )
 }
 
 export default Dance;
-
-
 
 const useStyles = makeStyles((theme) => ({
 

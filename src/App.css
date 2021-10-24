@@ -12,9 +12,9 @@ body{
 .modal{
   margin-top: 20px;
   padding: 20px;
-  background: #3b2a2a;
+  background: black;
   width: 100%;
-  font-style:oblique;
+  font-style: normal;
   color: white;
 }
 

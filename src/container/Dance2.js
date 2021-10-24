@@ -1,10 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
-
 import Button from '@material-ui/core/Button';
-
 import ReactPlayer from 'react-player'
-
 import * as tmPose from '@teachablemachine/pose';
 
 const Container = styled.div`
@@ -60,39 +57,7 @@ function loop(timestamp) {
   }
 }
 
-// const Dance = ({history}) => {
-//   init();
-
-//   const [mount, setmount] = useState(true);
-
-//   useEffect(() => {
-//     console.log('컴포넌트가 화면에 나타남');
-//     return () => {
-//       webcam.stop();
-//       console.log('컴포넌트가 화면에서 사라짐');
-//     };
-//   }, []);
-
-//     return (
-//         <Container>
-//           <Button variant="contained" color="secondary" onClick={ () => {history.goBack()} }> 뒤로 버튼 </Button>
-//           <div>
-//             <Half>
-//             <ReactPlayer
-//               width="100%"
-//               padding-top="10px"
-//               url='https://www.youtube.com/watch?v=7C2z4GqqS5E' controls/>
-//             </Half>
-//             <Half>
-//             <div><canvas id="canvas" /></div>
-//             </Half>
-//           </div>
-//         </Container>
-//     )
-// }
-
 class Dance2 extends React.Component{
-
   constructor(props){
     super(props);
     this.state = {
@@ -120,14 +85,13 @@ class Dance2 extends React.Component{
       mount=false;
   }
 
-
   render() {
 
       return (
         <Container>
            {
-                    this.state.ismount && <Button variant="contained" color="secondary" onClick={ () => {this.props.history.goBack()} }> 뒤로 버튼 </Button>
-                }
+             this.state.ismount && <Button variant="contained" color="secondary" onClick={ () => {this.props.history.goBack()} }> 뒤로 버튼 </Button>
+           }
            <div>
              <Half>
              <ReactPlayer

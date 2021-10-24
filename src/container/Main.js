@@ -21,8 +21,7 @@ const Container = styled.div`
   color: white;
   background: linear-gradient(
       to right,
-      rgba(70, 50, 20, 0.5) 1%,
-      rgba(20, 20, 20, 0.7) 50%,
+      rgba(0, 0, 0, 1) 50%,
       rgba(20, 20, 20, 1)
     ),
     url();
@@ -108,111 +107,101 @@ const Container = styled.div`
     },
   }));
 
-const Home = ( {history} ) => {
+  const Home = ( {history} ) => {
 
-  const classes = useStyles();
-
-    const images =  [
-      {
-        url: 'https://assets.gqindia.com/photos/5cee7eb00379a73d25177759/16:9/w_2560%2Cc_limit/Pushup.jpg',
-        title: 'PUSHUP',
-        siteurl:'/Push_up',
-        width: '30%',
-      },
-      {
-        url: 'https://www.mensjournal.com/wp-content/uploads/2018/02/squats-mens-journal-february-2018.jpg?w=1200&h=920&crop=1&quality=86&strip=all' ,
-        title: 'Squat',
-        siteurl: '/Squat',
-        width: '40%',
-      },
-      {
-        url: 'https://newsimg.sedaily.com/2017/05/23/1OG19KQQ2M_17.jpg',
-        title: 'SitUp',
-        siteurl: '/Sit_up',
-        width: '30%',
-      },
-      {
-        url: 'https://kourage.kr/wp-content/uploads/%E1%84%8F%E1%85%A5%E1%84%85%E1%85%B5%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB-%E1%84%82%E1%85%A1%E1%86%B7%E1%84%8C%E1%85%A1-%E1%84%8B%E1%85%AD%E1%84%80%E1%85%A1-%E1%84%80%E1%85%A1%E1%86%BC%E1%84%89%E1%85%A1-%E1%84%86%E1%85%AE%E1%86%AB%E1%84%8C%E1%85%A6%E1%84%92%E1%85%A7%E1%86%AB1.jpeg',
-        title: 'Yoga',
-        siteurl:'/Yoga',
-        width: '35%',
-      },
-      {
-        url: 'https://im-media.voltron.voanews.com/Drupal/01live-211/styles/sourced/s3/2019-08/205D3489-D2F9-489A-AA82-9B61F16AF09F.jpg?itok=TBGlB-HL',
-        title: 'Taekwondo',
-        siteurl:'/Tae',
-        width: '30%',
-      },
-      {
-        url: 'https://i.ytimg.com/vi/AoVwE9idERY/maxresdefault.jpg',
-        title: 'Dance',
-        siteurl: '/Dance',
-        width: '35%',
-      },
-      {
-        url: 'http://yonginyoga.com/wp-content/uploads/2016/04/d06d70e205bbb3f7e7e33e331583cd21.jpg',
-        title: 'ABOUT',
-        siteurl:'/About',
-        width: '50%',
-      },
-      {
-        url: 'https://www.wikihow.com/images_en/thumb/0/09/Write-a-Business-Memo-Step-25-Version-3.jpg/v4-460px-Write-a-Business-Memo-Step-25-Version-3.jpg.webp',
-        title: 'List',
-        siteurl: '/Memo',
-        width: '50%',
-      },
-    ];
+    const classes = useStyles();
+  
+      const images =  [
+        {
+          url: 'https://assets.gqindia.com/photos/5cee7eb00379a73d25177759/16:9/w_2560%2Cc_limit/Pushup.jpg',
+          title: 'PUSHUP',
+          siteurl:'/Push_up',
+          width: '30%',
+        },
+        {
+          url: 'https://www.mensjournal.com/wp-content/uploads/2018/02/squats-mens-journal-february-2018.jpg?w=1200&h=920&crop=1&quality=86&strip=all' ,
+          title: 'Squat',
+          siteurl: '/Squat',
+          width: '40%',
+        },
+        {
+          url: 'https://newsimg.sedaily.com/2017/05/23/1OG19KQQ2M_17.jpg',
+          title: 'SitUp',
+          siteurl: '/Sit_up',
+          width: '30%',
+        },
+        {
+          url: 'https://kourage.kr/wp-content/uploads/%E1%84%8F%E1%85%A5%E1%84%85%E1%85%B5%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%AB-%E1%84%82%E1%85%A1%E1%86%B7%E1%84%8C%E1%85%A1-%E1%84%8B%E1%85%AD%E1%84%80%E1%85%A1-%E1%84%80%E1%85%A1%E1%86%BC%E1%84%89%E1%85%A1-%E1%84%86%E1%85%AE%E1%86%AB%E1%84%8C%E1%85%A6%E1%84%92%E1%85%A7%E1%86%AB1.jpeg',
+          title: 'Yoga',
+          siteurl:'/Yoga',
+          width: '35%',
+        },
+        {
+          url: 'https://im-media.voltron.voanews.com/Drupal/01live-211/styles/sourced/s3/2019-08/205D3489-D2F9-489A-AA82-9B61F16AF09F.jpg?itok=TBGlB-HL',
+          title: 'Taekwondo',
+          siteurl:'/Tae',
+          width: '30%',
+        },
+        {
+          url: 'https://i.ytimg.com/vi/AoVwE9idERY/maxresdefault.jpg',
+          title: 'Dance',
+          siteurl: '/Dance',
+          width: '35%',
+        },
+        {
+          url: 'http://yonginyoga.com/wp-content/uploads/2016/04/d06d70e205bbb3f7e7e33e331583cd21.jpg',
+          title: 'ABOUT',
+          siteurl:'/About',
+          width: '50%',
+        },
+        {
+          url: 'https://www.wikihow.com/images_en/thumb/0/09/Write-a-Business-Memo-Step-25-Version-3.jpg/v4-460px-Write-a-Business-Memo-Step-25-Version-3.jpg.webp',
+          title: 'List',
+          siteurl: '/Memo',
+          width: '50%',
+        },
+      ]
   
     return (
-
-    <div>
-        <Container component={Paper}>
-      <div className={classes.root}>
-      
-        <Header />
-        
-        {images.map((image) => ( 
-      
-         <ButtonBase 
-            focusRipple
-            key={image.title}
-            className={classes.image}
-            focusVisibleClassName={classes.focusVisible}
-            style={{
-              width: image.width,
-            }}
-            component={RouterLink} to={image.siteurl}
-            
-          >
-            
-            <span
-              className={classes.imageSrc}
+      <div>
+          <Container component={Paper}>
+        <div className={classes.root}>
+          <Header />          
+          {images.map((image) => (        
+           <ButtonBase 
+              focusRipple
+              key={image.title}
+              className={classes.image}
+              focusVisibleClassName={classes.focusVisible}
               style={{
-                backgroundImage: `url(${image.url})`,
+                width: image.width,
               }}
-            />
-            <span className={classes.imageBackdrop} />
-            <span className={classes.imageButton}>
-              <Typography
-                component="span"
-                variant="subtitle1"
-                color="inherit"
-                className={classes.imageTitle}
-              >
-                {image.title}
-                <span className={classes.imageMarked} />
-              </Typography>
-              
-            </span>
-          </ButtonBase>
-       
-        ))}
-      </div>  
-    
-    <Footer/>
-   </Container>
-    </div>
-   
-    );
-}
-export default Home;
+              component={RouterLink} to={image.siteurl}           
+            >             
+              <span
+                className={classes.imageSrc}
+                style={{
+                  backgroundImage: `url(${image.url})`,
+                }}
+              />
+              <span className={classes.imageBackdrop} />
+              <span className={classes.imageButton}>
+                <Typography
+                  component="span"
+                  variant="subtitle1"
+                  color="inherit"
+                  className={classes.imageTitle}
+                >
+                  {image.title}
+                  <span className={classes.imageMarked} />
+                </Typography>              
+              </span>
+            </ButtonBase>       
+          ))}
+        </div>  
+      <Footer/>
+     </Container>
+      </div>
+      );
+  }
+  export default Home;
