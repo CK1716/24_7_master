@@ -57,7 +57,7 @@ const Tae = ({history}) => {
     ];
     return (
         <Container>
-        <h1>Taequeondo page</h1>
+        <h1>Taekwon-do page</h1>
         <div>
         <Button variant="contained" color="secondary" onClick={ () => {history.goBack()} }> 뒤로 버튼 </Button>  
         </div>
