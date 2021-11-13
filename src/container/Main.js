@@ -27,12 +27,6 @@ const Container = styled.div`
     url();
   background-size: cover;
 `;
-// const WhiteTextTypography = withStyles({
-//   root: {
-//     color: "#FFFFFF"
-//   }
-// })(Typography);
-
 
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -114,7 +108,7 @@ const Container = styled.div`
       const images =  [
         {
           url: 'https://assets.gqindia.com/photos/5cee7eb00379a73d25177759/16:9/w_2560%2Cc_limit/Pushup.jpg',
-          title: 'PUSHUP',
+          title: 'PushUp',
           siteurl:'/Push_up',
           width: '30%',
         },
@@ -138,7 +132,7 @@ const Container = styled.div`
         },
         {
           url: 'https://im-media.voltron.voanews.com/Drupal/01live-211/styles/sourced/s3/2019-08/205D3489-D2F9-489A-AA82-9B61F16AF09F.jpg?itok=TBGlB-HL',
-          title: 'Taekwondo',
+          title: 'Taekwon-Do',
           siteurl:'/Tae',
           width: '30%',
         },
@@ -149,7 +143,7 @@ const Container = styled.div`
           width: '35%',
         },
         {
-          url: 'http://yonginyoga.com/wp-content/uploads/2016/04/d06d70e205bbb3f7e7e33e331583cd21.jpg',
+          url: 'https://image.shutterstock.com/image-photo/man-running-jogging-on-bridge-260nw-1030702516.jpg',
           title: 'ABOUT',
           siteurl:'/About',
           width: '50%',
