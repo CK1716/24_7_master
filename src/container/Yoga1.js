@@ -28,11 +28,11 @@ const Container = styled.div`
 
 
 const URL = "https://teachablemachine.withgoogle.com/models/p3aRD2kQA/";
-let model=null, webcam=null, ctx=null, maxPredictions=null;
+let model = null, webcam = null, ctx = null, maxPredictions = null;
 
-let load=null;
+let load = null;
 
-let yoga=null;
+let yoga = null;
 let startTime = 0;
 let isCheck = false;
 let seconds = 0;
@@ -42,7 +42,7 @@ let stand = "Stand";
 
 const modelURL = URL + "model.json";
 const metadataURL = URL + "metadata.json";
- 
+
 var mount = false;
 
 async function init() {
@@ -52,7 +52,7 @@ async function init() {
   // load the model and metadata
   // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
   // Note: the pose library adds a tmPose object to your window (window.tmPose)
-  
+
   maxPredictions = model.getTotalClasses();
 
   // Convenience function to setup a webcam
@@ -60,10 +60,10 @@ async function init() {
   const flip = true; // whether to flip the webcam
   webcam = new tmPose.Webcam(size, size, flip); // width, height, flip
   await webcam.setup(); // request access to the webcam
-  await webcam.play(); 
-  
+  await webcam.play();
+
   window.requestAnimationFrame(loop);
-      
+
   // append/get elements to the DOM
   const canvas = document.getElementById("canvas");
   canvas.width = size;
@@ -76,7 +76,7 @@ async function init() {
   load = document.getElementById("load");
   load.innerHTML = "";
 
-  mount =true;
+  mount = true;
   console.log("mount is " + mount);
 }
 
@@ -135,82 +135,79 @@ async function predict() {
 }
 
 function drawPose(pose) {
-    if (webcam.canvas) {
-        ctx.drawImage(webcam.canvas, 0, 0);
-        // draw font
-        ctx.fillText('Seconds : ' + seconds, 10, 50);
-        ctx.fillText('Count : ' + count, 10, 100);
+  if (webcam.canvas) {
+    ctx.drawImage(webcam.canvas, 0, 0);
+    // draw font
+    ctx.fillText('Seconds : ' + seconds, 10, 50);
+    ctx.fillText('Count : ' + count, 10, 100);
 
-        // draw the keypoints and skeleton
-        if (pose) {
-            const minPartConfidence = 0.5;
-            tmPose.drawKeypoints(pose.keypoints, minPartConfidence, ctx);
-            tmPose.drawSkeleton(pose.keypoints, minPartConfidence, ctx);
-        }
+    // draw the keypoints and skeleton
+    if (pose) {
+      const minPartConfidence = 0.5;
+      tmPose.drawKeypoints(pose.keypoints, minPartConfidence, ctx);
+      tmPose.drawSkeleton(pose.keypoints, minPartConfidence, ctx);
     }
+  }
 }
 
 
 
-class Yoga1 extends React.Component{
+class Yoga1 extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      ismount : false
+      ismount: false
     };
     this.forBack = this.forBack.bind(this);
   }
 
-  async forBack(){
-      await init();
-      this.setState({
-          ismount : true
-      })
-      console.log("forBack done")
+  async forBack() {
+    await init();
+    this.setState({
+      ismount: true
+    })
+    console.log("forBack done")
   }
 
-  componentDidMount(){
-      this.forBack();
+  componentDidMount() {
+    this.forBack();
   }
 
-  componentWillUnmount(){
-      if(webcam!=null){
-          webcam.stop();
-      }
-      mount=false;
-      count=0;
+  componentWillUnmount() {
+    if (webcam != null) {
+      webcam.stop();
+    }
+    mount = false;
+    count = 0;
   }
 
 
   render() {
 
-      return (
-        <Container>
-              {
-                  this.state.ismount && <Button variant="contained" color="secondary" onClick={ () => {this.props.history.goBack()} }> 뒤로 버튼 </Button>
-              }
-              <div style={{fontSize : 50}} id="load">Loading...</div> 
-              <Half>
-            <div>
-              <img src={yoga1} alt="yoga1"/>
-              <h2>요가 - Standing Half Moon Pose</h2>
-              <h3>1. 발 끝이 정면을 향하게 두 발을 모은다.</h3>
-              <h3>2. 두 손 끝이 하늘을 향하도록 두 팔을 천천히 들어 올린다.</h3>
-              <h3>3. 엄지와 검지를 맞댄 후 남은 손가락은 서로 교차하여 쥔다.</h3>
-              <h3>4. 배와 턱을 당기며 천천히 오른쪽으로 팔과 함께 상체를 구부린다.</h3>
-              <h3>5. 약 1분 가량 동작을 유지한 뒤, 천천히 팔과 상체를 편다.</h3>
-            </div>
-          </Half>
-          <Half>  
-              <div><canvas id="canvas" /></div>  
-          </Half>  
-              
-              
-              
-        </Container>
-      );
+    return (
+      <Container>
+        {
+          this.state.ismount && <Button variant="contained" color="secondary" onClick={() => { this.props.history.goBack() }}> 뒤로 버튼 </Button>
+        }
+        <div style={{ fontSize: 50 }} id="load">Loading...</div>
+        <Half>
+          <div align="left">
+            <img src={yoga1} alt="yoga1" />
+            <h2>요가 - Standing Half Moon Pose</h2>
+            <h3>1. 발 끝이 정면을 향하게 두 발을 모은다.</h3>
+            <h3>2. 두 손 끝이 하늘을 향하도록 두 팔을 천천히 들어 올린다.</h3>
+            <h3>3. 엄지와 검지를 맞댄 후 남은 손가락은 서로 교차하여 쥔다.</h3>
+            <h3>4. 배와 턱을 당기며 천천히 오른쪽으로 팔과 함께 상체를 구부린다.</h3>
+            <h3>5. 약 1분 가량 동작을 유지한 뒤, 천천히 팔과 상체를 편다.</h3>
+          </div>
+        </Half>
+        <Half>
+          <div><canvas id="canvas" /></div>
+        </Half>
+      </Container>
+    );
   }
-  };
+};
 
 export default Yoga1;

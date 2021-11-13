@@ -162,10 +162,14 @@ class sit_up extends React.Component{
               }
               <div style={{fontSize : 50}} id="load">Loading...</div> 
               <Half>
-            <div>
+            <div align = "left">
               <img src={image3} alt="image3"/>
-              <h2>윗몸일으키기 기본동작입니다.</h2>
-              <h3>윗몸일으키기 동작전 처음과 같이 자세를 준비해주시길 바랍니다.</h3>
+              <h2>운동 방법</h2>
+              <h3>1. 천장을 바라보며 바닥에 눕는다.</h3>
+              <h3>2. 양 손을 깍지 낀 상태로 머리 뒤를 받친다.</h3>
+              <h3>3. 팔꿈치를 가슴 안쪽으로 모으며 상체를 천천히 들어올린다.</h3>
+              <h3>4. 무릎에 팔꿈치가 닿으면 다시 천천히 상체를 내린다.</h3>
+              <h3>5. 1~4번을 15회에서 20회가량 반복한다.</h3>
               
             </div>
           </Half>

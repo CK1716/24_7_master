@@ -189,7 +189,7 @@ class Yoga3 extends React.Component{
               }
               <div style={{fontSize : 50}} id="load">Loading...</div> 
               <Half>
-            <div>
+              <div align = "left">
               <img src={yoga3} alt="yoga3"/>
               <h2>요가 - Tree Pose</h2>
               <h3>1. 오른 무릎을 구부려 바깥으로 열고 발목을 잡아 왼 허벅지 안쪽에 발바닥을 고정시킨 후 중심을 잡는다.</h3>

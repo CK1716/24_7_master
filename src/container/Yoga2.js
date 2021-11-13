@@ -190,7 +190,7 @@ class Yoga2 extends React.Component{
               }
               <div style={{fontSize : 50}} id="load">Loading...</div> 
               <Half>
-            <div>
+              <div align = "left">
               <img src={yoga2} alt="yoga2"/>
               <h2>요가 - Triangle Pose</h2>
               <h3>1. 다리를 골반 두배만큼 벌리고 두 발을 11자로 둔 후 양팔을 좌 우로 펼친다.</h3>

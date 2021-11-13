@@ -158,7 +158,7 @@ class Squat extends React.Component{
                 }
                 <div style={{fontSize : 50}} id="load">Loading...</div> 
           <Half>
-            <div>
+            <div align = "left">
               <img src={image2} alt="image2"/>
               <h2>운동 방법</h2>
               <h3>1. 릴렉스한 채로 선다. 어깨 넓이로 발을 벌리고 양 팔은 몸에 가볍게 붙인다.</h3>

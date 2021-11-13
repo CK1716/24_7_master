@@ -192,7 +192,7 @@ class Yoga4 extends React.Component{
               }
               <div style={{fontSize : 50}} id="load">Loading...</div> 
               <Half>
-            <div>
+              <div align = "left">
               <img src={yoga4} alt="yoga4"/>
               <h2>요가 - Camel Pose</h2>
               <h3>1. 발끝과 무릎을 세우고 양손으로 허리와 골반 중간 지점을 받쳐준다.</h3>
